@@ -1,2 +1,2 @@
 # lengaburu-traffic
-The  repo for code refactoring problem coding challenge in Backend problem set 3. This will have different folders for implementations in different languages
+This is the repo for the code you need to refactor for GeekTrust [coding problem set3](https://www.geektrust.in/lengaburu). It has different folders for implementations in different languages. Currently we have code in Java and Python. 
