@@ -28,15 +28,17 @@ VEHICLES = {
 WEATHER_CONDITIONS = {
     "sunny": {
         "CATERS_REDUCED": 0.1,
+        "CATERS_INCREASED": 0,
         "VEHICLES": ["CAR", "BIKE", "TUKTUK"]
     },
     "rainy": {
-        "CATERS_REDUCED": 0.2,
+        "CATERS_REDUCED": 0,
+        "CATERS_INCREASED": 0.2,
         "VEHICLES": ["CAR", "TUKTUK"]
     },
     "windy": {
+        "CATERS_INCREASED": 0,
         "CATERS_REDUCED": 0,
         "VEHICLES": ["CAR", "BIKE"]
     }
 }
-
