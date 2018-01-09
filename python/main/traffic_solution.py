@@ -7,8 +7,6 @@ import config
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Distance = Speed x Time
-
 
 class FastestRoute(object):
     def __init__(self, weather, orbit_details):
@@ -53,9 +51,36 @@ class FastestRoute(object):
         time += self._get_craters(orbit) * properties["CRATER_CROSS_TIME"]
         return time
 
-    def test(self):
-        print self._get_time(self.orbit1, "BIKE")
+    def _get_orbit_min_time(self, orbit):
+        """
+
+        :param (Orbit) orbit:
+        :return (int): minimum time(hrs) to cover this orbit
+        """
+        speeds = {}
+        vehicles = self.weather["VEHICLES"]
+        for vehicle in vehicles:
+            time_taken = self._get_time(orbit, vehicle)
+            speeds[vehicle] = time_taken
+        return speeds
+
+    def main(self):
+        ob1_time = self._get_orbit_min_time(self.orbit1)
+        ob2_time = self._get_orbit_min_time(self.orbit2)
+        min_time = min(min(ob1_time.values()), min(ob2_time.values()))
+        vehicle, orbit = "", 0
+        if min_time in ob1_time.values():
+            ob = ob1_time
+            orbit = 1
+        else:
+            ob = ob2_time
+            orbit = 2
+        for v in ob:
+            if ob[v] == min_time:
+                vehicle = v
+        return "Vehicle {} on Orbit{}".format(vehicle, orbit)
 
 
-fs = FastestRoute("windy", {"Orbit1": 14, "Orbit2": 20})
-fs.test()
+if __name__ == "__main__":
+    fs = FastestRoute("sunny", {"Orbit1": 12, "Orbit2": 10})
+    print fs.main()

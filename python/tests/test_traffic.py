@@ -1,13 +1,13 @@
 import unittest
 import sys
 sys.path.append('../main')
-from traffic_solution import Traffic
+from traffic_solution import FastestRoute
 
 
-class TestTraffic(unittest.TestCase):
+class TestFastestRoute(unittest.TestCase):
 
     def setUp(self):
-        self.traffic = Traffic("Sunny", {"Orbit1": 12, "Orbit2": 10})
+        self.traffic = FastestRoute("Sunny", {"Orbit1": 12, "Orbit2": 10})
 
     def test_instance(self):
-        self.assertIsInstance(self.traffic, Traffic)
+        self.assertIsInstance(self.traffic, FastestRoute)

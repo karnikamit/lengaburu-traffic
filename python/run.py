@@ -10,5 +10,5 @@ for case in xrange(cases):
     orbit2_speed = int(raw_input("Orbit2 traffic speed is "))
     orbit_details = {"Orbit1": orbit1_speed, "Orbit2": orbit2_speed}
     traffic = FastestRoute(weather, orbit_details)
-    print traffic.weather
-    #print traffic.solution()
+    print traffic.main()
+
